@@ -1,0 +1,113 @@
+@charset "UTF-8"
+//Noto Sans JP
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css)
+//End of Noto Sans JP
+
+$sm: 320px
+$md: 375px
+$la: 414px
+$xl: 1000px
+
+= mq($breakpoint: $sm)
+	@media screen and (max-width: #{$breakpoint} )
+		@content
+
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+
+ul
+	list-style: none
+
+=absolute-center
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	margin: auto
+
+
+body
+	/*--------明朝の場合--------*/
+	//font-family: 游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif
+	/*--------ゴシックの場合 Noto Sans JP importも忘れずに--------*/
+	font-family: "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+	font-size: 16px
+	display: block
+	width: 100%
+	height: auto
+	text-align: center
+	color: #595757
+	#container
+		display: block
+		position: relative
+		width: 100%
+		height: auto
+		//border: solid 1px red
+		
+header
+	width: 100%
+	height: 40px
+	margin: 0 auto
+	background-color: #2be5d9
+	//border: solid 1px red
+	+mq($md)
+		/*--js heder&Nav SP用--*/
+		//position: fixed
+		//top: 0
+		//left: 0
+		//z-index: 100
+		//width: 100%
+		//transition: .3s
+		/*--End of js heder&Nav SP用--*/
+	#header_inner
+		display: flex
+		position: relative
+		width: 900px
+		height: auto
+		margin: 0 auto
+		padding: 6px 0
+		//border: solid 1px red
+		a
+			color: #fff
+		#header_logo
+			width: 50px
+			height: 30px
+			//border: solid 1px red
+		#header_user_info
+			display: flex
+			width: auto
+			height: 30px
+			margin-left: 420px
+			//border: solid 1px red
+			li
+				color: #fff
+				padding: 0 5px
+				//border: solid 1px red
+				a
+					display: flex
+					align-items: center
+					i
+						font-size: 1.4rem
+					p
+						margin-left: 10px
+		#header_function
+			display: flex
+			width: auto
+			height: 30px
+			margin-left: 60px
+			li
+				padding: 0 10px
+				//border: solid 1px red
+				i
+					font-size: 1.4rem
+		#sign-out
+			width: auto
+			height: 30px
+			margin-left: 30px
+			i
+				font-size: 1.4rem

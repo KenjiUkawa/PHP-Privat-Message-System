@@ -1,0 +1,80 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none; }
+
+ul {
+  list-style: none; }
+
+body {
+  /*--------明朝の場合-------- */
+  /*--------ゴシックの場合 Noto Sans JP importも忘れずに-------- */
+  font-family: "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #595757; }
+  body #container {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto; }
+
+header {
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #2be5d9; }
+  @media screen and (max-width: 375px) {
+    header {
+      /*--js heder&Nav SP用-- */
+      /*--End of js heder&Nav SP用-- */ } }
+  header #header_inner {
+    display: flex;
+    position: relative;
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+    padding: 6px 0; }
+    header #header_inner a {
+      color: #fff; }
+    header #header_inner #header_logo {
+      width: 50px;
+      height: 30px; }
+    header #header_inner #header_user_info {
+      display: flex;
+      width: auto;
+      height: 30px;
+      margin-left: 420px; }
+      header #header_inner #header_user_info li {
+        color: #fff;
+        padding: 0 5px; }
+        header #header_inner #header_user_info li a {
+          display: flex;
+          align-items: center; }
+          header #header_inner #header_user_info li a i {
+            font-size: 1.4rem; }
+          header #header_inner #header_user_info li a p {
+            margin-left: 10px; }
+    header #header_inner #header_function {
+      display: flex;
+      width: auto;
+      height: 30px;
+      margin-left: 60px; }
+      header #header_inner #header_function li {
+        padding: 0 10px; }
+        header #header_inner #header_function li i {
+          font-size: 1.4rem; }
+    header #header_inner #sign-out {
+      width: auto;
+      height: 30px;
+      margin-left: 30px; }
+      header #header_inner #sign-out i {
+        font-size: 1.4rem; }
