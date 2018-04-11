@@ -37,44 +37,53 @@ header {
       /*--js heder&Nav SP用-- */
       /*--End of js heder&Nav SP用-- */ } }
   header #header_inner {
-    display: flex;
-    position: relative;
     width: 900px;
     height: auto;
     margin: 0 auto;
-    padding: 6px 0; }
+    padding: 4px 0; }
     header #header_inner a {
       color: #fff; }
     header #header_inner #header_logo {
       width: 50px;
-      height: 30px; }
-    header #header_inner #header_user_info {
+      height: 30px;
+      float: left; }
+    header #header_inner #header_inner_right {
       display: flex;
-      width: auto;
-      height: 30px;
-      margin-left: 420px; }
-      header #header_inner #header_user_info li {
-        color: #fff;
-        padding: 0 5px; }
-        header #header_inner #header_user_info li a {
-          display: flex;
-          align-items: center; }
-          header #header_inner #header_user_info li a i {
-            font-size: 1.4rem; }
-          header #header_inner #header_user_info li a p {
-            margin-left: 10px; }
-    header #header_inner #header_function {
-      display: flex;
-      width: auto;
-      height: 30px;
-      margin-left: 60px; }
-      header #header_inner #header_function li {
-        padding: 0 10px; }
-        header #header_inner #header_function li i {
-          font-size: 1.4rem; }
-    header #header_inner #sign-out {
-      width: auto;
-      height: 30px;
-      margin-left: 30px; }
-      header #header_inner #sign-out i {
-        font-size: 1.4rem; }
+      float: right; }
+      header #header_inner #header_inner_right #header_user_info {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 30px; }
+        header #header_inner #header_inner_right #header_user_info li {
+          width: auto;
+          color: #fff;
+          padding: 0 5px;
+          font-size: 1.3rem; }
+          header #header_inner #header_inner_right #header_user_info li:nth-of-type(2) {
+            margin-top: -2px; }
+          header #header_inner #header_inner_right #header_user_info li a {
+            display: flex;
+            align-items: center; }
+            header #header_inner #header_inner_right #header_user_info li a p {
+              margin-left: 10px;
+              font-size: 1rem; }
+      header #header_inner #header_inner_right #header_function {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 30px;
+        margin-left: 60px; }
+        header #header_inner #header_inner_right #header_function li {
+          padding: 0 10px;
+          font-size: 1.3rem; }
+      header #header_inner #header_inner_right #other_options {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 30px;
+        margin-left: 30px; }
+        header #header_inner #header_inner_right #other_options li {
+          color: #fff;
+          padding: 0 7px;
+          font-size: 1.3rem; }

@@ -65,49 +65,60 @@ header
 		//transition: .3s
 		/*--End of js heder&Nav SP用--*/
 	#header_inner
-		display: flex
-		position: relative
 		width: 900px
 		height: auto
 		margin: 0 auto
-		padding: 6px 0
+		padding: 4px 0
 		//border: solid 1px red
 		a
 			color: #fff
 		#header_logo
 			width: 50px
 			height: 30px
+			float: left
 			//border: solid 1px red
-		#header_user_info
+		#header_inner_right
 			display: flex
-			width: auto
-			height: 30px
-			margin-left: 420px
+			float: right
 			//border: solid 1px red
-			li
-				color: #fff
-				padding: 0 5px
+			#header_user_info
+				display: flex
+				align-items: center
+				width: auto
+				height: 30px
 				//border: solid 1px red
-				a
-					display: flex
-					align-items: center
-					i
-						font-size: 1.4rem
-					p
-						margin-left: 10px
-		#header_function
-			display: flex
-			width: auto
-			height: 30px
-			margin-left: 60px
-			li
-				padding: 0 10px
-				//border: solid 1px red
-				i
-					font-size: 1.4rem
-		#sign-out
-			width: auto
-			height: 30px
-			margin-left: 30px
-			i
-				font-size: 1.4rem
+				li
+					width: auto
+					color: #fff
+					padding: 0 5px
+					font-size: 1.3rem
+					//border: solid 1px red
+					&:nth-of-type(2)
+						margin-top: -2px
+					a
+						display: flex
+						align-items: center
+						p
+							margin-left: 10px
+							font-size: 1rem
+			#header_function
+				display: flex
+				align-items: center
+				width: auto
+				height: 30px
+				margin-left: 60px
+				li
+					padding: 0 10px
+					font-size: 1.3rem
+					//border: solid 1px red
+			#other_options
+				display: flex
+				align-items: center
+				width: auto
+				height: 30px
+				margin-left: 30px
+				li
+					color: #fff
+					padding: 0 7px
+					font-size: 1.3rem
+					//border: solid 1px red
