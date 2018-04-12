@@ -19,35 +19,45 @@ $conversations=fetch_conversation_summery($mysqli);
 if(empty($conversations)){
 	$errors[]="No Messages";
 }
-if(!empty($errors)){
-	foreach($errors as $error){
-		echo $error;
-	}
-}
+
 
 		
-	//load header
-	include($include_header);
+//load header
+include($include_header);
 		
 ?>
 
-<a href="index.php?page=new_conversation">New Message</a>
-
-
-<?php foreach($conversations as $conversation){ ?>
-
-	<style type="text/css">
-		.unread{font-weight: bold;}
-	</style>
-
-	<div class="<?php if($conversation['conversation_unread']){ echo 'unread'; } ?>">
+<section id="inbox">
 	
-		<p>
-			<a href="index.php?page=inbox&amp;delete_conversation=<?php echo $conversation['conversation_id'] ?>">[x]</a>
-			<a href="index.php?page=view_conversation&amp;conversation_id=<?php echo $conversation['conversation_id'] ?>"><?php echo $conversation['conversation_subject'] ?></a>
-		</p>
-		<p><small>Last Reply: <?php echo date('y/m/d H:i:s', $conversation['conversation_last_reply']) ?></small></p>
-		
-	</div>
+	<h1>受信ボックス</h1>
+	<h2>プライベートメッセージの一覧です</h2>
 
+	<div class="inner_container">
+		<div id="new_message">
+			<a href="index.php?page=new_conversation" alt="New Message"><i class="fas fa-pencil-alt"></i>&nbsp;新しいメッセージ</a>
+		</div>
+		
+<?php
+		
+	if(!empty($errors)){
+		foreach($errors as $error){
+			echo '<div class="no_messages">'.$error.'</div>';
+		}
+	}
+		
+	foreach($conversations as $conversation){ ?>
+
+		<ul id="posted_subject" class="<?php if($conversation['conversation_unread']){ echo 'unread'; } ?>">
+		
+			<li class="time_message">
+				<small><?php echo date('y/m/d H:i:s', $conversation['conversation_last_reply']) ?></small>
+			</li>
+			<li>
+				<a href="index.php?page=view_conversation&amp;conversation_id=<?php echo $conversation['conversation_id'] ?>"><?php echo mb_strimwidth($conversation['conversation_subject'], 0, 56, "...", 'UTF-8'); ?></a>
+				<a href="index.php?page=inbox&amp;delete_conversation=<?php echo $conversation['conversation_id'] ?>">&nbsp;<i class="fas fa-trash-alt"></i></a>
+			</li>
+			
+		</ul>
 <?php } ?>
+	</div>
+</section>

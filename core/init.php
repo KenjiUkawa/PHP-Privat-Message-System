@@ -60,7 +60,7 @@ if($mysqli->connect_error){
 include("{$core_path}/function/user.php");
 if(isset($_POST['user_email'], $_POST['user_password'])){
 	if(validate_credentials($_POST['user_email'], $_POST['user_password'], $mysqli)===true){
-		header('Location: index.php?page=inbox');
+		header('Location: index.php?page=home');
 	}else{
 		echo "Sorry. Make sure the User Name and Password again.";
 	}

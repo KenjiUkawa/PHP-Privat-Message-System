@@ -37,15 +37,15 @@ if($valid_conversation){
 		$messages=fetch_conversation_messages($_GET['conversation_id'], $mysqli);
 		update_conversation_last_view($_GET['conversation_id'], $mysqli);
 	}
+	
+//load header
+include($include_header);
 ?>
-
-	<a href="index.php?page=inbox">Inbox</a>
-	<a href="index.php?page=logout">Logout</a>
 
 	<!------- reply form ------->
 	<form action="" method="post">
-		<textarea name="message"></textarea>
 		<input type="submit" value="Reply">
+		<textarea name="message"></textarea>
 	</form>
 	
 <?php

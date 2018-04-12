@@ -8,9 +8,21 @@ $md: 375px
 $la: 414px
 $xl: 1000px
 
-= mq($breakpoint: $sm)
+=mq($breakpoint: $sm)
 	@media screen and (max-width: #{$breakpoint} )
 		@content
+
+$main-color: #2be5d9
+$gray80: #595757
+$gray50: #9FA0A0
+$errors: #F67E93
+
+=absolute-center
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	margin: auto
 
 *
 	box-sizing: border-box
@@ -19,16 +31,21 @@ $xl: 1000px
 
 a
 	text-decoration: none
+	color: $gray80
 
 ul
 	list-style: none
 
-=absolute-center
-	top: 0
-	right: 0
-	bottom: 0
-	left: 0
-	margin: auto
+.input_hide
+	display: none
+
+.errors
+	display: flex
+	align-items: center
+	justify-content: center
+	color: $errors
+	p
+		margin-left: 10px
 
 
 body
@@ -48,12 +65,19 @@ body
 		width: 100%
 		height: auto
 		//border: solid 1px red
+		section
+			width: 900px
+			height: auto
+			margin: 0 auto
+			h2
+				margin-bottom: 50px
+			
 		
 header
 	width: 100%
 	height: 40px
 	margin: 0 auto
-	background-color: #2be5d9
+	background-color: $main-color
 	//border: solid 1px red
 	+mq($md)
 		/*--js heder&Nav SP用--*/
@@ -122,3 +146,139 @@ header
 					padding: 0 7px
 					font-size: 1.3rem
 					//border: solid 1px red
+
+/*-------------------------------------
+	home.php
+/*-------------------------------------
+section#home
+	.inner_container
+		display: flex
+		width: 900px
+		height: auto
+		margin-top: 30px
+		.inner_left
+			width: 23%
+			height: auto
+			text-align: left
+			margin: 0 auto 0 0
+			//border: solid 1px red
+			ul
+				display: block
+				text-align: center
+				line-height: 2rem
+				li#home_user_icon
+					font-size: 5rem
+		.inner_center
+			width: 50%
+			height: auto
+			margin: 0 auto 0 0
+			//border: solid 1px red
+			form#new_post
+				width: 100%
+				margin-bottom: 30px
+				ul
+					margin-bottom: 20px
+					li.post_icon
+						display: inline-block
+						margin: 8px 15px
+						label
+							font-size: 1.2rem
+							&:hover
+								cursor: pointer
+				textarea
+					width: 90%
+					height: 150px
+					line-height: 1.5rem
+					padding: 10px
+					border: solid 3px $gray50
+					border-radius: 3px
+					resize: none
+			#post_list
+				margin-bottom: 30px
+		.inner_right
+			width: 23%
+			height: auto
+			margin: 0 auto 0 0
+			//border: solid 1px red
+
+
+/*-------------------------------------
+	inbox.php
+/*-------------------------------------
+section#inbox
+	//border: solid 1px red
+	.unread
+		font-weight: bold
+	.inner_container
+		width: 500px
+		text-align: left
+		margin: 0 auto
+		//border: solid 1px red
+		#new_message
+			font-size: 1.2rem
+			margin-bottom: 30px
+		#posted_subject
+			margin-bottom: 20px
+			li
+				line-height: 1.3rem
+		.no_messages
+			font-wieght: bold
+
+
+/*-------------------------------------
+	new_conversation.php
+/*-------------------------------------
+section#new_conversation
+	//border: solid 1px red
+	form
+		width: 500px
+		margin: 0 auto
+		input
+			width: 90%
+			padding: 10px
+			margin-bottom: 20px
+			border: solid 3px $gray50
+			border-radius: 3px
+		textarea
+			width: 90%
+			height: 150px
+			line-height: 1.5rem
+			margin-bottom: 20px
+			padding: 10px
+			border: solid 3px $gray50
+			border-radius: 3px
+			resize: none
+		label
+			display: flex
+			font-size: 1.5rem
+			width: 90%
+			align-items: center
+			justify-content: center
+			padding: 10px 20px
+			background-color: $main-color
+			color: #fff
+			margin: 0 auto
+			border-radius: 3px
+			opacity: 0.6
+			transition: .3s
+			&:hover
+				cursor: pointer
+				opacity: 1
+			p
+				font-size: 1rem
+
+
+/*-------------------------------------
+	preference.php
+/*-------------------------------------
+section#preference
+	form
+		width: 400px
+		text-align: left
+		line-height: 2rem
+		margin: 0 auto
+		#rename_user
+			margin-bottom: 20px
+		input[type="submit"]
+			margin-top: 20px
+	

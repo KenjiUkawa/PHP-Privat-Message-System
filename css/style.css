@@ -6,10 +6,22 @@
   padding: 0; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #595757; }
 
 ul {
   list-style: none; }
+
+.input_hide {
+  display: none; }
+
+.errors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F67E93; }
+  .errors p {
+    margin-left: 10px; }
 
 body {
   /*--------明朝の場合-------- */
@@ -26,6 +38,12 @@ body {
     position: relative;
     width: 100%;
     height: auto; }
+    body #container section {
+      width: 900px;
+      height: auto;
+      margin: 0 auto; }
+      body #container section h2 {
+        margin-bottom: 50px; }
 
 header {
   width: 100%;
@@ -87,3 +105,125 @@ header {
           color: #fff;
           padding: 0 7px;
           font-size: 1.3rem; }
+
+/*-------------------------------------
+ * home.php */
+/*------------------------------------- */
+section#home .inner_container {
+  display: flex;
+  width: 900px;
+  height: auto;
+  margin-top: 30px; }
+  section#home .inner_container .inner_left {
+    width: 23%;
+    height: auto;
+    text-align: left;
+    margin: 0 auto 0 0; }
+    section#home .inner_container .inner_left ul {
+      display: block;
+      text-align: center;
+      line-height: 2rem; }
+      section#home .inner_container .inner_left ul li#home_user_icon {
+        font-size: 5rem; }
+  section#home .inner_container .inner_center {
+    width: 50%;
+    height: auto;
+    margin: 0 auto 0 0; }
+    section#home .inner_container .inner_center form#new_post {
+      width: 100%;
+      margin-bottom: 30px; }
+      section#home .inner_container .inner_center form#new_post ul {
+        margin-bottom: 20px; }
+        section#home .inner_container .inner_center form#new_post ul li.post_icon {
+          display: inline-block;
+          margin: 8px 15px; }
+          section#home .inner_container .inner_center form#new_post ul li.post_icon label {
+            font-size: 1.2rem; }
+            section#home .inner_container .inner_center form#new_post ul li.post_icon label:hover {
+              cursor: pointer; }
+      section#home .inner_container .inner_center form#new_post textarea {
+        width: 90%;
+        height: 150px;
+        line-height: 1.5rem;
+        padding: 10px;
+        border: solid 3px #9FA0A0;
+        border-radius: 3px;
+        resize: none; }
+    section#home .inner_container .inner_center #post_list {
+      margin-bottom: 30px; }
+  section#home .inner_container .inner_right {
+    width: 23%;
+    height: auto;
+    margin: 0 auto 0 0; }
+
+/*-------------------------------------
+ * inbox.php */
+/*------------------------------------- */
+section#inbox .unread {
+  font-weight: bold; }
+section#inbox .inner_container {
+  width: 500px;
+  text-align: left;
+  margin: 0 auto; }
+  section#inbox .inner_container #new_message {
+    font-size: 1.2rem;
+    margin-bottom: 30px; }
+  section#inbox .inner_container #posted_subject {
+    margin-bottom: 20px; }
+    section#inbox .inner_container #posted_subject li {
+      line-height: 1.3rem; }
+  section#inbox .inner_container .no_messages {
+    font-wieght: bold; }
+
+/*-------------------------------------
+ * new_conversation.php */
+/*------------------------------------- */
+section#new_conversation form {
+  width: 500px;
+  margin: 0 auto; }
+  section#new_conversation form input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: solid 3px #9FA0A0;
+    border-radius: 3px; }
+  section#new_conversation form textarea {
+    width: 90%;
+    height: 150px;
+    line-height: 1.5rem;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: solid 3px #9FA0A0;
+    border-radius: 3px;
+    resize: none; }
+  section#new_conversation form label {
+    display: flex;
+    font-size: 1.5rem;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #2be5d9;
+    color: #fff;
+    margin: 0 auto;
+    border-radius: 3px;
+    opacity: 0.6;
+    transition: 0.3s; }
+    section#new_conversation form label:hover {
+      cursor: pointer;
+      opacity: 1; }
+    section#new_conversation form label p {
+      font-size: 1rem; }
+
+/*-------------------------------------
+ * preference.php */
+/*------------------------------------- */
+section#preference form {
+  width: 400px;
+  text-align: left;
+  line-height: 2rem;
+  margin: 0 auto; }
+  section#preference form #rename_user {
+    margin-bottom: 20px; }
+  section#preference form input[type="submit"] {
+    margin-top: 20px; }
