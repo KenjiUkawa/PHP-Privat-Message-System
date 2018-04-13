@@ -17,7 +17,7 @@ if(isset($_GET['delete_conversation'])){
 $conversations=fetch_conversation_summery($mysqli);
 /*-- display an error message --*/
 if(empty($conversations)){
-	$errors[]="No Messages";
+	$errors[]="メッセージはありません。";
 }
 
 
@@ -34,7 +34,7 @@ include($include_header);
 
 	<div class="inner_container">
 		<div id="new_message">
-			<a href="index.php?page=new_conversation" alt="New Message"><i class="fas fa-pencil-alt"></i>&nbsp;新しいメッセージ</a>
+			<a href="index.php?page=new_conversation" alt="New Message"><i class="fas fa-pencil-alt"></i>&nbsp;メッセージを書く</a>
 		</div>
 		
 <?php

@@ -2,6 +2,7 @@
 
 //ini_set('display_errors', 1);
 
+
 /*-----------------------------------------------
 	conversation summery
 ------------------------------------------------*/
@@ -165,6 +166,23 @@ function delete_conversation($conversation_id,$mysqli){
 }
 
 /*-----------------------------------------------
+	get subject for view_conversation
+------------------------------------------------*/
+function get_current_subject($conversation_id,$mysqli){
+	$conversation_id=(int)$conversation_id;
+	
+	$sql="SELECT
+				conversations.conversation_subject
+			FROM
+				conversations
+			WHERE
+				conversations.conversation_id={$conversation_id}";
+	
+	$result=$mysqli->query($sql);
+	$subject=array();
+}
+
+/*-----------------------------------------------
 	fetch_conversation_messages
 ------------------------------------------------*/
 function fetch_conversation_messages($conversation_id, $mysqli){
@@ -174,7 +192,9 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 				conversations_messages.message_date,
 				conversations_messages.message_date > conversations_members.conversation_last_view AS message_unresd,
 				conversations_messages.message_text,
-				users.user_name
+				users.user_name,
+				users.user_icon,
+				conversations.conversation_subject
 			FROM
 				conversations_messages
 			INNER JOIN
@@ -185,7 +205,10 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 				conversations_members
 			ON
 				conversations_messages.conversation_id=conversations_members.conversation_id
-				
+			INNER JOIN
+				conversations
+			ON
+				conversations_messages.conversation_id=conversations.conversation_id	
 			WHERE
 				conversations_messages.conversation_id={$conversation_id}
 				-- date will be repeted if delete below
