@@ -10,13 +10,15 @@ $errors=array();
 //return true or false for errors
 $valid_conversation=(isset($_GET['conversation_id']) && validate_conversation_id($_GET['conversation_id'], $mysqli));
 
-$subject=array();
 if($valid_conversation===false){
 	$errors[]="ID Error.";
-}else{
-	/*-- get current subject --*/
-	$subject=get_current_subject($_GET['conversation_id'],$mysqli);
 }
+
+/*-- get current subject --*/
+$subject= get_current_subject($_GET['conversation_id'],$mysqli);
+var_dump($subject);
+
+
 /*-------- validation for reply form --------*/
 if(isset($_POST['message'])){
 	if(empty($_POST['message'])){
@@ -45,7 +47,7 @@ include($include_header);
 	<section id="view_conversation">
 	
 		<h1>お友達とのメッセージ内容</h1>
-		<h2><?php echo $subject; ?></h2>
+		<h2><?php echo mb_strimwidth($subject['conversation_subject'], 0, 56, "...", 'UTF-8'); ?></h2>
 
 <?php
 
@@ -59,7 +61,7 @@ include($include_header);
 
 		<!------- reply form ------->
 		<form action="" method="post">
-			<textarea name="message"></textarea>
+			<textarea name="message" placeholder="お友達のメッセージに返信しよう。"></textarea>
 			<label>
 				<i class="fas fa-reply"></i>
 				<p>&nbsp;返信</p>
@@ -76,7 +78,7 @@ include($include_header);
 				<li class="user_name"><?php echo $message['user_name'] ?></li>
 				<li class="post_date"><?php echo date('y/m/d H:i:s',$message['message_date']) ?></li>
 			</ul>
-			<p><?php echo $message['message_text'] ?></p>
+			<p class="text_align_left"><?php echo $message['message_text'] ?></p>
 		</div>
 <?php } //end of foreach
 } //end of if

@@ -23,6 +23,9 @@ ul {
   .errors p {
     margin-left: 10px; }
 
+.text_align_left {
+  text-align: left; }
+
 body {
   /*--------明朝の場合-------- */
   /*--------ゴシックの場合 Noto Sans JP importも忘れずに-------- */
@@ -257,9 +260,16 @@ section#view_conversation form {
 section#view_conversation div.message_history_container {
   width: 100%;
   margin: 0 auto; }
-  section#view_conversation div.message_history_container div.message_container {
+  section#view_conversation div.message_history_container div.massage_container {
+    display: block;
+    position: relative;
     width: 80%;
-    height: auto; }
+    height: auto;
+    margin: 0 auto; }
+    section#view_conversation div.message_history_container div.massage_container p {
+      display: block;
+      width: 100%;
+      height: auto; }
 
 /*-------------------------------------
  * preference.php */

@@ -13,7 +13,6 @@ function fetch_conversation_summery($mysqli){
 				conversations.conversation_subject,				
 				MAX(conversations_messages.message_date) AS conversation_last_reply,
 				MAX(conversations_messages.message_date) > conversations_members.conversation_last_view AS conversation_unread
-				
 			FROM
 				conversations
 			-- convine conversations.conversation_id and conversations_messages.conversation_id
@@ -172,14 +171,24 @@ function get_current_subject($conversation_id,$mysqli){
 	$conversation_id=(int)$conversation_id;
 	
 	$sql="SELECT
-				conversations.conversation_subject
+				conversation_subject
 			FROM
 				conversations
 			WHERE
-				conversations.conversation_id={$conversation_id}";
+				conversation_id={$conversation_id}";
 	
-	$result=$mysqli->query($sql);
+	$subject=$mysqli->query($sql);
+	//$subject=$conversation_id
+	//$subject=count($subject);
+	return($subject);
+	
+	/*$result=$mysqli->query($sql);
 	$subject=array();
+	
+	while($row=$result->fetch_assoc()){
+		$subject[]=$row;
+	}
+	return $subject;*/
 }
 
 /*-----------------------------------------------
