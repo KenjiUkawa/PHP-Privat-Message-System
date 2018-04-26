@@ -177,18 +177,12 @@ function get_current_subject($conversation_id,$mysqli){
 			WHERE
 				conversation_id={$conversation_id}";
 	
-	$subject=$mysqli->query($sql);
-	//$subject=$conversation_id
-	//$subject=count($subject);
-	return($subject);
+	$result=$mysqli->query($sql);
 	
-	/*$result=$mysqli->query($sql);
-	$subject=array();
-	
-	while($row=$result->fetch_assoc()){
-		$subject[]=$row;
+	foreach( $result as $value ){
+		$subject=$value['conversation_subject'];
 	}
-	return $subject;*/
+	return $subject;
 }
 
 /*-----------------------------------------------
@@ -201,6 +195,7 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 				conversations_messages.message_date,
 				conversations_messages.message_date > conversations_members.conversation_last_view AS message_unresd,
 				conversations_messages.message_text,
+				conversations_messages.user_id,
 				users.user_name,
 				users.user_icon,
 				conversations.conversation_subject
@@ -222,6 +217,9 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 				conversations_messages.conversation_id={$conversation_id}
 				-- date will be repeted if delete below
 				AND conversations_members.user_id={$_SESSION['user_id']}
+			-- specify columns which are group up
+			GROUP BY
+				conversations_messages.conversation_id
 			ORDER BY
 				conversations_messages.message_date DESC";
 	$result=$mysqli->query($sql);

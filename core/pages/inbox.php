@@ -20,7 +20,6 @@ if(empty($conversations)){
 	$errors[]="メッセージはありません。";
 }
 
-
 		
 //load header
 include($include_header);
