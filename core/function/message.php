@@ -193,7 +193,7 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 	
 	$sql="SELECT
 				conversations_messages.message_date,
-				conversations_messages.message_date > conversations_members.conversation_last_view AS message_unresd,
+				conversations_messages.message_date > conversations_members.conversation_last_view AS message_unread,
 				conversations_messages.message_text,
 				conversations_messages.user_id,
 				users.user_name,
@@ -216,19 +216,19 @@ function fetch_conversation_messages($conversation_id, $mysqli){
 			WHERE
 				conversations_messages.conversation_id={$conversation_id}
 				-- date will be repeted if delete below
-				AND conversations_members.user_id={$_SESSION['user_id']}
+				-- AND conversations_members.user_id={$_SESSION['user_id']}
 			-- specify columns which are group up
 			GROUP BY
-				conversations_messages.conversation_id
+				conversations_messages.message_date
 			ORDER BY
 				conversations_messages.message_date DESC";
 	$result=$mysqli->query($sql);
 	$messages=array();
 	
-	while ($row = $result->fetch_assoc()) {
+	while($row = $result->fetch_assoc()) {
 		$messages[] = $row;
-		return $messages;
 	}
+	return $messages;
 }
 
 

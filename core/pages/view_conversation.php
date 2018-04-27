@@ -71,13 +71,8 @@ if($valid_conversation){
 		update_conversation_last_view($_GET['conversation_id'], $mysqli);
 	}
 	
-	var_dump($messages);
-	//var_dump($_SESSION['user_id']);
-	/*foreach($messages as $message){
-		var_dump($message);
-	}*/
-	/*$number_of_meaages=count($messages);
-	echo $number_of_meaages;*/
+	//var_dump($messages);
+
 	
 //load header
 include($include_header);
@@ -93,8 +88,8 @@ include($include_header);
 	if(isset($errors)){
 		foreach($errors as $error){
 			echo '<div class="errors"><i class="fas fa-exclamation-circle fa-2x"></i><p>'.$error.'</p></div><br>';
-		}
-	}
+		}//end of foreach($errors as $error)
+	}//end of if(isset($errors))
 	
 ?>
 
@@ -112,29 +107,26 @@ include($include_header);
 		<div class="message_history_container">
 <?php
 	foreach($messages as $message){ ?>
-				<div class="massage_container <?php if($conversation['conversation_unread']){ echo 'unread'; } ?> <?php
-								   /*-- own message or not --*/
-								   if($_SESSION['user_id']===$message['user_id']){
-									   echo 'own_user_id';
-								   }else{
-									   echo 'other_user_id';
-								   }
-					?>">
-				<ul>
-					<li class="user_icon"><?php if(empty($message['user_icon'])){
-												echo $user_icon='<i class="far fa-user-circle" aria-hidden="true"></i>';
-											}else{
-												$user_icon='<img src="{$core_path}/imgs/user_icons/'.$row['user_icon'].'" alt="User Icon"/>';
-										} ?>
-						
-					</li>
-					<li class="user_name"><?php echo $message['user_name'] ?></li>
-					<li class="post_date"><small><?php echo date('y/m/d H:i:s',$message['message_date']) ?></small></li>
-				</ul>
-				<p class="text_align_left"><?php echo $message['message_text'] ?></p>
-			</div>
-<?php } //end of foreach
-} //end of if
+		<div class="massage_container <?php if($conversation['conversation_unread']){ echo 'unread'; } ?> <?php
+			/*-- own message or not --*/
+			if($_SESSION['user_id']===$message['user_id']){ echo 'own_user_id';
+			}else{ echo 'other_user_id';}
+		?>">
+			<ul>
+				<li class="user_icon"><?php if(empty($message['user_icon'])){
+											echo '<i class="far fa-user-circle" aria-hidden="true"></i>';
+										}else{
+											echo '<img src="{$core_path}/imgs/user_icons/'.$message['user_icon'].'" alt="User Icon"/>';
+									} ?>
+					
+				</li>
+				<li class="user_name"><?php echo $message['user_name'] ?></li>
+				<li class="post_date"><small><?php echo date('y/m/d H:i:s',$message['message_date']) ?></small></li>
+			</ul>
+			<p class="text_align_left"><?php echo $message['message_text'] ?></p>
+		</div>
+<?php } //end of foreach($messages as $message)
+} //end of if($valid_conversation)
 ?>
 		</div>
 	</section>
