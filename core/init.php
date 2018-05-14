@@ -1,5 +1,5 @@
 <?php
-//ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 
 /*--------------------------------------------------
 	include new sent message
@@ -66,7 +66,7 @@ if(isset($_POST['user_email'], $_POST['user_password'])){
 	}
 }
 
-include("{$core_path}/function/message.php");
+// include("{$core_path}/function/message.php");
 
 /*-----------------------------------------
 	sign up system for register.php
@@ -82,4 +82,8 @@ if(isset($_POST['signup'],$_POST['user_name'],$_POST['user_email'],$_POST['user_
 	}
 }
 
+/*---- included files ----*/
+include("{$core_path}/function/message.php");
+
+include("{$core_path}/function/post.php");
 ?>

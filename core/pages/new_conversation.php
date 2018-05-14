@@ -39,7 +39,7 @@ if(isset($_POST['to'], $_POST['subject'], $_POST['body'])){
 	//send new message if no errors
 	if(empty($errors)){
 		create_conversation(array_unique($user_ids), $_POST['subject'], $_POST['body'], $mysqli);
-		$success_message= 'メッセージを送信しました';
+		$success_message= 'メッセージを送信しました。';
 	}
 	
 }

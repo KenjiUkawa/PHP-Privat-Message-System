@@ -82,6 +82,17 @@ include($include_header);
 	
 		<h1>お友達とのメッセージ内容</h1>
 		<h2 class="text_align_left"><?php echo $subject; ?></h2>
+		
+		<!------- reply form ------->
+		<form action="" method="post">
+			<textarea name="message" placeholder="お友達のメッセージに返信しよう。"></textarea>
+			<input type="hidden" name="token" value="<?=$token; ?>">
+			<label>
+				<i class="fas fa-reply"></i>
+				<p>&nbsp;返信</p>
+				<input type="submit" value="返信" class="input_hide">
+			</label>
+		</form>
 
 <?php
 
@@ -93,16 +104,6 @@ include($include_header);
 	
 ?>
 
-		<!------- reply form ------->
-		<form action="" method="post">
-			<textarea name="message" placeholder="お友達のメッセージに返信しよう。"></textarea>
-			<input type="hidden" name="token" value="<?=$token; ?>">
-			<label>
-				<i class="fas fa-reply"></i>
-				<p>&nbsp;返信</p>
-				<input type="submit" value="返信" class="input_hide">
-			</label>
-		</form>
 		
 		<div class="message_history_container">
 <?php

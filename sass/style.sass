@@ -65,6 +65,8 @@ body
 	/*--------ゴシックの場合 Noto Sans JP importも忘れずに--------*/
 	font-family: "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
 	font-size: 16px
+	letter-spacing: .1rem
+	line-height: 1.5rem
 	display: block
 	width: 100%
 	height: auto
@@ -85,10 +87,13 @@ body
 			
 		
 header
+	position: fixed
 	width: 100%
 	height: 40px
+	top: 0
 	margin: 0 auto
 	background-color: $main-color
+	z-index: 9999
 	//border: solid 1px red
 	+mq($md)
 		/*--js heder&Nav SP用--*/
@@ -159,14 +164,22 @@ header
 					//border: solid 1px red
 
 /*-------------------------------------
-	home.php
+	login.php
+-------------------------------------*/
+#container
+	padding-top: 100px
+	>h2
+		margin-bottom: 50px
+
+
 /*-------------------------------------
+	home.php
+-------------------------------------*/
 section#home
 	.inner_container
 		display: flex
 		width: 900px
 		height: auto
-		margin-top: 30px
 		.inner_left
 			width: 23%
 			height: auto
@@ -215,7 +228,7 @@ section#home
 
 /*-------------------------------------
 	inbox.php
-/*-------------------------------------
+-------------------------------------*/
 section#inbox
 	//border: solid 1px red
 	.unread
@@ -238,7 +251,7 @@ section#inbox
 
 /*-------------------------------------
 	new_conversation.php
-/*-------------------------------------
+-------------------------------------*/
 section#new_conversation
 	//border: solid 1px red
 	form
@@ -282,37 +295,48 @@ section#new_conversation
 
 /*-------------------------------------
 	view_conversation.php
-/*-------------------------------------
+-------------------------------------*/
 section#view_conversation
+	width: 100%
+	margin: 0 auto
 	//border: solid 1px red
-	form
+	>h1
+		margin: 0 auto 60px auto
+	h2
 		width: 500px
-		margin: 0 auto 50px auto
-		input
-			width: 90%
-			padding: 10px
-			margin-bottom: 20px
-			border: solid 3px $gray50
-			border-radius: 3px
+		margin: 0 auto
+		text-align: justify
+		//border: solid 1px red
+	form
+		display: flex
+		position: fixed
+		width: 900px
+		bottom: 0
+		margin-left: 120px
+		padding: 20px 0 50px 0
+		background-color: #fff
+		z-index: 999
+		//border: solid 1px red
 		textarea
-			width: 90%
-			height: 150px
+			width: 500px
+			height: 80px
 			line-height: 1.5rem
-			margin-bottom: 20px
+			margin-right: 10px
 			padding: 10px
 			border: solid 3px $gray50
 			border-radius: 3px
+			background-color: #fff
 			resize: none
 		label
 			display: flex
 			font-size: 1.5rem
-			width: 90%
+			width: 150px
+			height: 80px
 			align-items: center
 			justify-content: center
 			padding: 10px 20px
 			background-color: $main-color
 			color: #fff
-			margin: 0 auto
 			border-radius: 3px
 			opacity: 0.6
 			transition: .3s
@@ -322,14 +346,14 @@ section#view_conversation
 			p
 				font-size: 1rem
 	div.message_history_container
-		width: 100%
+		width: 70%
 		margin: 0 auto
 		div.massage_container
 			display: block
 			position: relative
-			width: 80%
+			width: 90%
 			height: auto
-			margin: 0 auto
+			padding: 20px 0
 			ul
 			p
 				display: block
@@ -341,7 +365,7 @@ section#view_conversation
 
 /*-------------------------------------
 	preference.php
-/*-------------------------------------
+-------------------------------------*/
 section#preference
 	form
 		width: 400px

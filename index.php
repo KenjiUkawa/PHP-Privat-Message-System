@@ -2,7 +2,6 @@
 include('core/init.php');
 
 //ini_set('display_errors', 1);
-
 ?>
 
 <!DOCTYPE html>
@@ -25,20 +24,20 @@ include('core/init.php');
 </head>
 
 <body>
-	
+
 	<div id="container">
-		
+
 		<?php
-		
+
 		//load page
 		include($include_file);
-		
+
 		?>
 	</div><!-- div id="container" -->
-	
-	
 
-<!----------------------------
+
+
+<!--------------------------------------
 	jQuery
 ---------------------------------------->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
